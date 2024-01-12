@@ -1,0 +1,70 @@
+---
+title: Analysis of MtCars Data
+format: html
+jupyter: python3
+---
+
+
+## Import Data: Mtcars
+
+```{python}
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+cars = pd.read_csv('mtcars.csv')
+cars.describe()
+```
+
+## Horsepower vs. Miles Per Gallon
+
+```{python}
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Setting the aesthetic style of the plots
+sns.set(style="whitegrid")
+
+# Creating a scatter plot: Horsepower vs. Miles Per Gallon
+plt.figure(figsize=(10, 6))
+scatter_plot = sns.scatterplot(x='hp', y='mpg', data=cars)
+scatter_plot.set_title('Horsepower vs. Miles Per Gallon')
+scatter_plot.set_xlabel('Horsepower')
+scatter_plot.set_ylabel('Miles per Gallon')
+plt.show()
+```
+
+## Distribution of MPG Across Different Numbers of Cylinders
+
+```{python}
+# Creating a boxplot: Distribution of MPG across different numbers of cylinders
+plt.figure(figsize=(10, 6))
+boxplot = sns.boxplot(x='cyl', y='mpg', data=cars)
+boxplot.set_title('Distribution of MPG Across Different Numbers of Cylinders')
+boxplot.set_xlabel('Number of Cylinders')
+boxplot.set_ylabel('Miles per Gallon')
+plt.show()
+```
+
+## Pairwise Relationships for MPG, Displacement, Horsepower, and Weight
+
+```{python}
+# Creating a pairplot for a subset of variables
+pairplot_vars = ['mpg', 'disp', 'hp', 'wt']
+pairplot = sns.pairplot(cars[pairplot_vars])
+pairplot.fig.suptitle('Pairwise Relationships for MPG, Displacement, Horsepower, and Weight', y=1.02)
+plt.show()
+```
+
+## Distribution of Cars by Number of Gears
+
+```{python}
+# Creating a count plot: Distribution of cars based on the number of gears
+plt.figure(figsize=(10, 6))
+count_plot = sns.countplot(x='gear', data=cars)
+count_plot.set_title('Distribution of Cars by Number of Gears')
+count_plot.set_xlabel('Number of Gears')
+count_plot.set_ylabel('Count of Cars')
+plt.show()
+
+```
