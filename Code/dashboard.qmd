@@ -1,0 +1,14 @@
+---
+title: "Hello, Quarto"
+format: html
+editor: visual
+---
+
+```{r}
+library(palmerpenguins)
+data(package = 'palmerpenguins')
+head(penguins)
+```
+```{python}
+penguins.describe()
+```
